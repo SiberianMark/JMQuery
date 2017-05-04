@@ -1,5 +1,15 @@
 (function(){
 	var JMArray={
+		//数组反序
+		reverse:function(arr){
+			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
+			return arr.reverse();
+		}
+		//数组串接成字符串
+		arrToStr:function(arr,separator){
+			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
+			return arr.join(separator);
+		}
 		unique:function(arr){//推荐默认hash数组去重
 			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
 			var n=[],//临时数组
@@ -77,7 +87,7 @@
 				swap;
 			for(i=0;i<len-1;i++){
 				for(j=0;j<len-i-1;j++){
-					if(arr[j]>arr[j+1]){//比较相邻两个元素，如果前一个比后一个大则交换，每一轮得出档轮最大数排在最后面
+					if(arr[j]>arr[j+1] && arr[j] && arr[j+1]){//比较相邻两个元素，如果前一个比后一个大则交换，每一轮得出档轮最大数排在最后面
 						swap=arr[j];
 						arr[j]=arr[j+1];
 						arr[j+1]=swap;
@@ -86,21 +96,55 @@
 			}
 			return arr;
 		}
-		//选择排序
+		//选择排序--最稳定o(n*n)
 		selectionSort:function(arr){
 			if(Object.prototype.toString.call(arr)!='[object Array]')return false;
-			var i,j,minix,swap,
+			var i,j,minix,swap
 				len=arr.length;
-			for(i = 0;i<len-1;i++){//假设当前值为最小，保存索引，与后续所有值进行比较，如有更小则替换索引，每一轮选出最小的值
-				minix=i;
-				for(j=i+1;j<len;j++){
-					if(arr[j]<arr[minix]){
-						minix=j;
+				for(i=0;i<len;i++){
+					minix=i;
+					for(j=i;j<len;j++){
+						if(arr[i]>arr[j] && arr[j] && arr[j+1]){//比较当前轮的值与后续其他值
+							minix=j;
+						}
+
+					}
+					swap=arr[minix];
+					arr[minix]=arr[i];
+					arr[i]=swap;	
+				}
+			return arr;
+		},
+		//冒泡排序	
+		bubbleSort:function(arr){
+			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
+			var i,j,swap,
+				len=arr.length;
+				for(i=0;i<len-1;i++){
+					for(j=0;j<len-1;j++){
+						if(arr[j]>arr[j+1] && arr[j] && arr[j+1]){
+							swap=arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=swap;
+						}
 					}
 				}
-				swap=arr[minix]
-				arr[minix]=arr[i];
-				arr[i]=swap;
+			return arr;
+		},
+		//插入排序算法
+		insertSort:function(arr){
+			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
+			var i,j,swap,
+				len=arr.length;
+				
+			for(i=1;i<len;i++){
+				preIndex=i-1;
+				current=arr[i];//设置已排序数组的最后一项(当前项)，当比前一项小，前一项就往后移，往前看一项直到第一项
+				while(preIndex>=0 && arr[preIndex]>current){
+					arr[preIndex+1]=arr[preIndex];
+					preIndex--;
+				}
+				arr[prIndex+1]=current;
 			}
 			return arr;
 		}

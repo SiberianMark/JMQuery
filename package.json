@@ -1,0 +1,22 @@
+{
+  "name": "jmquery",
+  "version": "1.0.0",
+  "description": "a javascript function library include string,obj,array .et on web develement in my work experience",
+  "main": "index.js",
+  "scripts": {
+    "build":"webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiberianMark/JMQuery.git"
+  },
+  "author": "JM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiberianMark/JMQuery/issues"
+  },
+  "homepage": "https://github.com/SiberianMark/JMQuery#readme",
+  "devDependencies": {
+    "webpack": "^2.5.0"
+  }
+}

@@ -1,4 +1,4 @@
-(function(){
+
 	var JMArray={
 		//数组反序
 		reverse:function(arr){
@@ -101,17 +101,17 @@
 			if(Object.prototype.toString.call(arr)!='[object Array]')return false;
 			var i,j,minix,swap
 				len=arr.length;
-				for(i=0;i<len;i++){
+				for(i=0;i<len-1;i++){
 					minix=i;
-					for(j=i;j<len;j++){
-						if(arr[i]>arr[j] && arr[j] && arr[j+1]){//比较当前轮的值与后续其他值
-							minix=j;
+					for(j=i+1;j<len;j++){
+						if(arr[i]>arr[j]){//比较当前轮的值与后续其他值
+							swap=arr[minix];
+							arr[minix]=arr[j];
+							arr[j]=swap;
 						}
 
 					}
-					swap=arr[minix];
-					arr[minix]=arr[i];
-					arr[i]=swap;	
+						
 				}
 			return arr;
 		},
@@ -150,5 +150,4 @@
 		}
 		
 	}
-	return JMArray;
-})();
+	module.exports = JMArray;

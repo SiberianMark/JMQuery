@@ -44,3 +44,4 @@ var JMString={
 	}	
 
 }
+module.exports=JMString

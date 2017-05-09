@@ -208,15 +208,21 @@ function PageGoto(_page,params){
 
 //JS对象转URL参数
 function objToUrl(obj,key,encode){
-    if(obj==null) return '';
-    var objStr='';
-    var t= typeof(obj);
-    if(t === 'string' || t=== 'number' || t==='boolean'){
+    if(obj==null) return '';//如果传入的对象为null或者undefined，返回
+    var objStr='';//初始化返回结果
+    var t= typeof(obj);//深度递归结束标志
+    if(t === 'string' || t=== 'number' || t==='boolean'){//如不为object则结束递归
         objStr+='&'+key+'='+((encode==null|| encode)?encodeURIComponent(obj):obj);
     }else {
-        for (var i in obj) {
-            var k = key == null ? i : key + (obj instanceof Array ? '[' + i + ']' : '.' + i);
-            objStr += objToUrl(obj[i], k, encode);
+        for (var i in obj) {//如为object，对象或者数组则分别处理并递归
+            var k = (key == null ?//当前传入的为层次最深的对象，
+                    i : 
+                    key + //否则未到最深，
+                    (obj instanceof Array ? 
+                        '[' + i + ']' : //当前节点为数组
+                        '.' + i   //当前节点为对象
+                    ));
+            objStr += objToUrl(obj[i], k, encode);//递归
         }
     }
     return objStr;

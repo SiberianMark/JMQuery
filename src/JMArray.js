@@ -22,6 +22,7 @@
 			}
 			return n;
 		},
+
 		uniqueHash:function(arr){//利用hash数组去重提高性能
 			if(Object.prototype.toString.call(arr)!='[object Array]') return false;
 			var n=[],//临时数组
@@ -34,6 +35,15 @@
 			}
 			return n;
 		},
+		var result=[];
+		var hash={};
+		for(var i=0;i<arr.length-1;i++){
+			if(!hash[arr[i]]){
+				result.push(arr[i]);
+				hash[arr[i]]==true;
+			}
+		}
+		return result;
 		uniqueIndexof:function(arr){//双重循环遍历比较去重
 			if(Object.prototype.toString.call(arr)!=='[object Array]')return false;
 			var n=[];//临时数组
@@ -148,6 +158,36 @@
 			}
 			return arr;
 		},
+		//快速排序
+		quickSort:function(arr){
+			if(Object.prototype.toString.call(arr)!="[object Array]"){return;}
+			if(arr.length<=1){return arr;}
+			var len=arr.length,
+				pIndex=Math.floor(len/2),
+				p=arr.splice(pIndex, 1)[0],//临界值
+				arrLeft=[],
+				arrRight=[];
+			for(let i=0;i<len;i++){
+				if(arr[i]<p){
+					arrLeft.push(arr[i]);
+				}else{
+					arrRight.push(arr[i]);
+				}
+			}
+			return quickSort(arrLeft).concat([p],quickSort(arrRight))
+		},
+		//不可变数组范围求和高性能版本
+		staticArraySum:function(arr,i,j){
+			if(Object.prototype.toString.call(arr)!="[object Array]"){return;}
+			var sumlist=[];
+			sum=0;
+			for(let i = 0;i<arr.length;i++){
+				sum=sum+arr[i];
+				sumlist.push(sum);
+			}
+			return sumlist[j]-sumlist[i-1];
+		},
+
 		isArrayLike:function(collection){//判断对象是否是类数组
 			var length=collection && collection.length;
 			return typeof length == 'number' && length>=0 && length<MAX_ARRAY_INDEX;

@@ -22,11 +22,27 @@ Child.prototype.hi=function(){
 Child.prototype.learn=function(){
 	console.log('I am good at learning');
 }
-
 var parent=new Parent('parent','49')
 var child=new Child('child',12,'qqgoggogog');
 console.log(child);
 console.log(child.name)
 console.log(parent.name)
 
+Object.prototype.clone=function(obj){
+	var clone;
+	if(obj instanceof Array){
+		clone=[];
+		for(let i in obj){
+			clone.push(obj[i]);
+		}
+	}else if(typeof obj =='object'){
+		clone={};
+		for(let i in obj){
+			clone[i]=clone(obj[i]);
+		}
+	}else{
+		clone=obj;
+	}
+	return clone;
 
+}

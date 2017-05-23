@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flex Demo</title>
+</head>
+<style>
+	.div1{width:100%;height:500px;background-color: #999999;}
+	.flex-box{
+		display: box/*09之前老版本*/
+	}
+	.flex-inline-box{
+		display: inline-box;
+	}
+</style>
+<body>
+	<div class="div1 flex-box">
+		<div class="flex-box-item"></div>
+		<div class="flex-box-item"></div>
+		<div class="flex-box-item"></div>
+		<div class="flex-box-item"></div>
+	</div>
+	<div class="div2 flex-inlinebox">
+		<span class="flex-inlinebox-item"></span>
+		<span class="flex-inlinebox-item"></span>
+		<span class="flex-inlinebox-item"></span>
+		<span class="flex-inlinebox-item"></span>
+	</div>
+	<div class="div3 flex-mix-box">
+		<span class="flex-box-item"></span>
+		<span class="flex-box-item"></span>
+		<div class="flex-inlinebox-item"></div>
+		<div class="flex-inlinebox-item"></div>
+	</div>
+</body>
+</html>

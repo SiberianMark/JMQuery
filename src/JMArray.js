@@ -185,7 +185,7 @@
 				sum=sum+arr[i];
 				sumlist.push(sum);
 			}
-			return sumlist[j]-sumlist[i-1];
+			return sumlist[j]-sumlist[i-1    ];
 		},
 
 		isArrayLike:function(collection){//判断对象是否是类数组

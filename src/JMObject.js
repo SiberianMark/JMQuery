@@ -23,7 +23,7 @@ Child.prototype.learn=function(){
 	console.log('I am good at learning');
 }
 var parent=new Parent('parent','49')
-var child=new Child('child',12,'qqgoggogog');
+var child=new Child('child',12,'qqgoggogog');            
 console.log(child);
 console.log(child.name)
 console.log(parent.name)

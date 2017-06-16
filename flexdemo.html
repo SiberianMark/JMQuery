@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex</title>
+</head>
+<style>
+	.flex{
+		display:-webkit-box;
+		display: -moz-box;
+		display: box;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	body>div{width:100px;height:100px;border-radius: 4px;float:left;margin:10px;background-color: #000;border-radius: 4px;padding:5px;color:#fff;font-size:12px;}
+	span{width:30px;height:30px;border-radius: 4px;display: inline-block;background-color: #fff;}
+	.div1{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.div2{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.div3{
+		display: flex;
+		justify-content: flex-start;
+	}
+	.div3span2{align-self: center;}
+	.div4{
+		display: flex;
+		justify-content: space-between;
+	}
+	.div5{
+		display: flex;
+		justify-content: space-between;
+	}
+	.div5span2{align-self: center;}
+	.div5span3{align-self:flex-end;}
+	.div6{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-direction: row-reverse;
+	}
+	.div6span4{
+		align-self: flex-end;
+	}
+	.div7{
+		display: flex;
+		justify-content: space-between;
+	}
+	.div7div1,.div7div2{display: flex;flex-direction: column;justify-content: space-between;}
+	.div8{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-content:space-between;
+	}
+	.div9{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-content:space-between;
+	}
+	.div10{
+		display: flex;
+		justify-content: space-between;
+		
+	}
+	.div10div1,.div10div2{display: flex;justify-content: space-between;flex-direction: column;}
+	.div10span5{align-self: center;}
+</style>
+<body>
+	<!-- 1. 水平居中，垂直靠两侧 -->
+	<div class="div1"><span></span><span></span></div>
+	<!-- 2. 水平靠右，垂直靠两侧 -->
+	<div class="div2"><span></span><span></span></div>
+	<!-- 3.水平靠左,中间元素在其所在垂直轴居中 -->
+	<div class="div3"><span></span><span class="div3span2"></span></div>
+	<!-- 4.水平行靠两侧 -->
+	<div class="div4"><span></span><span></span></div>
+	<!-- 5.对角线平铺 -->
+	<div class="div5"><span class="div5span1"></span><span class="div5span2"></span><span class="div5span3"></div>
+	<!-- 6.换行部分右底角 -->
+	<div class="div6"><span class="div6span1"></span><span class="div6span2"></span><span class="div6span3"></span><span class="div6span4"></span></div>
+	<!-- 7.分布四角 -->
+	<div class="div7"><div class="div7div1"><span class="div7span1"></span><span class="div7span2"></span></div><div class="div7div2"><span class="div7span3"></span><span class="div7span4"></span></div></div>
+	<!-- 8.换行靠上下边 -->
+	<div class="div8"><span class="div8span1"></span><span class="div8span2"></span><span class="div8span5"></span><span class="div8span3"></span><span class="div8span4"></span><span class="div8span6"></span></div>
+	<!-- 9.换行靠两边 -->
+	<div class="div9"><span class="div9span1"></span><span class="div9span2"></span><span class="div9span5"></span><span class="div9span3"></span><span class="div9span4"></span><span class="div8span6"></span></div>
+	<!-- 10.五筒布局 -->
+	<div class="div10"><div class="div10div1"><span class="div10span1"></span><span class="div10span2"></span></div><span class="div10span5"></span><div class="div10div2"><span class="div10span3"></span><span class="div10span4"></span></div></div>
+</body>
+</html>

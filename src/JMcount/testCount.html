@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>testCount</title>
+</head>
+<style>
+	.count{width:100px;height:50px;background-color: #aaa;}
+</style>
+<body>
+	<div class="count"></div>
+</body>
+<script src="./JMcountdown.js"></script>
+<script src="./JMcookie.js"></script>
+<script>
+	var JMcookie =JMcookie;
+	console.log(JMcookie);
+	count('.count',{time:10});
+	JMcookie.setcookie('test','ddfafdsfds',10);
+	// JMcookie.getcookieAll();
+</script>
+</html>

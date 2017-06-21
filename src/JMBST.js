@@ -15,8 +15,7 @@ BSTNode.prototype.show=function(){
 function BST(){
 	this.root=null;//根节点
 	this.nodes=[];
-	this.count = 1;//记录数据在数据集中出现的次数
-	
+	this.count = 1;//记录数据在数据集中出现的次数	
 }
 
 BST.prototype.count=function(data){//计数

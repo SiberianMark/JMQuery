@@ -515,7 +515,7 @@ function settime(obj){//开始倒计时
             $('.code-input input').val('');
             clearInterval(t);
         }else{
-             $(remainTimeobj).addClass('sent');
+            $(remainTimeobj).addClass('sent');
             $(remainTimeobj).html('<div>'+remainTime+'</div>');
         }
         
